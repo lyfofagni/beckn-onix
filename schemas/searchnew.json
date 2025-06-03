@@ -1,0 +1,9 @@
+import json
+from jsonschema import validate, ValidationError
+
+def validate_payload(payload, schema):
+    try:
+        validate(instance=payload, schema=schema)
+        print("Valid Beckn payload!")
+    except ValidationError as e:
+        print("Validation error:", e.message)
